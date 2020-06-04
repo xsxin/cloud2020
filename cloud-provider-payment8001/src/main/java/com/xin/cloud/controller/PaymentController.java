@@ -52,6 +52,11 @@ public class PaymentController {
         }
     }
 
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
     /**
      * 获取微服务自身信息
      * @return
