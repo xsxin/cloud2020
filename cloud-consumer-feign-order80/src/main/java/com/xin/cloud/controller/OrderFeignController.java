@@ -20,8 +20,23 @@ public class OrderFeignController {
     @Autowired
     private PaymentFeignService paymentFeignService;
 
+    /**
+     * 测试openfeign服务调用
+     * @param id
+     * @return
+     */
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         return paymentFeignService.getPaymentById(id);
+    }
+
+    /**
+     * 测试openFeign的超时控制
+     * @return
+     */
+    @GetMapping("/consumer/payment/feign/timeout")
+    private String paymentFeignTimeout() {
+        // opennFeign-ribbon客户端默认等待一秒钟
+        return paymentFeignService.paymentFeignTimeout();
     }
 }
