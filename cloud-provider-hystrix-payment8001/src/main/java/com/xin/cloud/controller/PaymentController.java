@@ -47,7 +47,7 @@ public class PaymentController {
     }
 
     /**
-     * 模拟高并发下服务降级
+     * 模拟高并发的服务降级
      * @param id
      * @return
      */

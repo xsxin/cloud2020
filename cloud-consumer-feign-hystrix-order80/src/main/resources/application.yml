@@ -13,3 +13,7 @@ ribbon:
   ReadTimeout: 5000
   # 指的是建立连接所用的时间，适用于网络状况正常的情况下，俩端连接所用的时间
   ConnectTimeout: 5000
+# 用于服务降级在注解@FeignClient中添加fallbackFactory属性值
+feign:
+  hystrix:
+    enabled: true
