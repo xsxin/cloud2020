@@ -1,0 +1,26 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    # 客户端配置
+    config:
+      name: config #需要从github上读取的资源名称，注意没有yml后缀名
+      profile: dev   #读取后缀名称
+      label: master #分支名称
+      uri: http://config-3345.com:3345  #config服务端配置中心地址
+
+# 注册到Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
