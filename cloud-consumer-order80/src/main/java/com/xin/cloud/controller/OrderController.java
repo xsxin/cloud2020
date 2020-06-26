@@ -82,4 +82,14 @@ public class OrderController {
             return new CommonResult<>(444, "操作失败");
         }
     }
+
+    /**
+     * 验证sleuth+zipkin监控链路
+     * @return
+     */
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipKin() {
+        String forObject = restTemplate.getForObject("http://localhost:8001" + "/payment/zipkin", String.class);
+        return forObject;
+    }
 }
